@@ -26,6 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency('hashie')
   spec.add_runtime_dependency('ruby_odata')
   spec.add_runtime_dependency('activesupport')
-  spec.add_runtime_dependency('openssl')
   spec.add_runtime_dependency('ruby_odata')
 end
