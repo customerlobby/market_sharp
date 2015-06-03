@@ -1,23 +1,22 @@
-require 'faraday_middleware'
-Dir[File.expand_path('../../faraday/*.rb', __FILE__)].each{|f| require f}
-
 module MarketSharp
   module Connection
     private
 
     def connection
-      options = {
-        :url => "#{endpoint}#{api_version}/"
-      }
-      
-      # TODO: Remove or update the MarketSharpAuth middleware as needed. See the faraday/auth.rb
-      # TODO: file for additional information.
-      Faraday::Connection.new(options) do |connection|
-        connection.use FaradayMiddleware::MarketSharpAuth, api_key
-        connection.use FaradayMiddleware::Mashify
-        connection.use Faraday::Response::ParseJson
-        connection.adapter(adapter)
-      end
+      options = { rest_options: { headers: { "Authorization" => calculated_authorization } } }
+
+      return OData::Service.new(self.endpoint, options)
+    end
+
+    def calculated_authorization
+      epoch_time_stamp = Time.now.utc.to_i
+
+      message = "#{self.company_id}#{self.user_key}#{epoch_time_stamp}"
+
+      base64_secret_key = Base64.decode64(self.secret_key)
+      computed_secret = OpenSSL::HMAC.digest( 'sha256', base64_secret_key, message)
+
+      return "#{self.company_id}:#{self.user_key}:#{epoch_time_stamp}:#{Base64.encode64(computed_secret).strip}"
     end
   end
 end

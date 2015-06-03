@@ -11,42 +11,42 @@ RSpec.describe MarketSharp do
     end
   end
 
-  describe '#api_key' do
-    it 'should return the default api key' do
-      expect(MarketSharp.api_key).to eq(MarketSharp::Configuration::DEFAULT_API_KEY)
+  describe '#user_key' do
+    it 'should return the default user key' do
+      expect(MarketSharp.user_key).to eq(MarketSharp::Configuration::DEFAULT_USER_KEY)
     end
   end
 
-  describe '#api_key=' do
-    it 'should set the api key' do
-      MarketSharp.api_key = 'test'
-      expect(MarketSharp.api_key).to eq('test')
+  describe '#user_key=' do
+    it 'should set the user key' do
+      MarketSharp.user_key = 'test'
+      expect(MarketSharp.user_key).to eq('test')
     end
   end
 
-  describe '#api_version' do
-    it 'should return the default api version' do
-      expect(MarketSharp.api_version).to eq(MarketSharp::Configuration::DEFAULT_API_VERSION)
+  describe '#company_id' do
+    it 'should return the default company id' do
+      expect(MarketSharp.company_id).to eq(MarketSharp::Configuration::DEFAULT_COMPANY_ID)
     end
   end
 
-  describe '#api_version=' do
-    it 'should set the api_version' do
-      MarketSharp.api_version = '/test'
-      expect(MarketSharp.api_version).to eq('/test')
+  describe '#company_id=' do
+    it 'should set the company id' do
+      MarketSharp.company_id = 'test'
+      expect(MarketSharp.company_id).to eq('test')
     end
   end
 
-  describe '#adapter' do
-    it 'should return the default adapter' do
-      expect(MarketSharp.adapter).to eq(MarketSharp::Configuration::DEFAULT_ADAPTER)
+  describe '#secret_key' do
+    it 'should return the default secret_key' do
+      expect(MarketSharp.secret_key).to eq(MarketSharp::Configuration::DEFAULT_SECRET_KEY)
     end
   end
 
-  describe '#adapter=' do
-    it 'should set the adapter' do
-      MarketSharp.adapter = :typhoeus
-      expect(MarketSharp.adapter).to eq(:typhoeus)
+  describe '#secret_key=' do
+    it 'should set the secret_key' do
+      MarketSharp.secret_key = '/test'
+      expect(MarketSharp.secret_key).to eq('/test')
     end
   end
 

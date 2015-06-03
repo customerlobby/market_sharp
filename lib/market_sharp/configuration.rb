@@ -2,29 +2,19 @@ module MarketSharp
   module Configuration
 
     VALID_OPTIONS_KEYS = [
-      :api_key,
-      :api_version,
-      :adapter,
+      :company_id,
+      :user_key,
+      :secret_key,
       :endpoint
     ].freeze
 
-    # TODO: You may need to change this. Not all API's take a key. Adjust as necessary.
-    # By default don't set the api key.
-    DEFAULT_API_KEY = nil
+    DEFAULT_COMPANY_ID = nil
 
-    # TODO: If the target API provides different version set the default here. Remove if unneeded.
-    # By default use V1 of the API.
-    DEFAULT_API_VERSION = '/v1'.freeze
+    DEFAULT_USER_KEY = nil
 
-    # Use the default Faraday adapter.
-    DEFAULT_ADAPTER = Faraday.default_adapter
+    DEFAULT_SECRET_KEY = nil
 
-    # TODO: Change this to the actual target API base url.
-    # By default use the main api URL.
-    DEFAULT_ENDPOINT = 'https://api.market_sharp.net'.freeze
-
-    # By default request JSON data to be returned from the API.
-    DEFAULT_FORMAT = :json
+    DEFAULT_ENDPOINT = 'https://api4.marketsharpm.com/WcfDataService.svc/'.freeze
 
     attr_accessor *VALID_OPTIONS_KEYS
 
@@ -44,13 +34,12 @@ module MarketSharp
       base.reset
     end
 
-    # TODO: Update this method with the final configurations provided above.
     # Reset all configuration settings to default values.
     def reset
-      self.api_key     = DEFAULT_API_KEY
-      self.api_version = DEFAULT_API_VERSION
+      self.company_id  = DEFAULT_COMPANY_ID
+      self.user_key    = DEFAULT_USER_KEY
+      self.secret_key  = DEFAULT_SECRET_KEY
       self.endpoint    = DEFAULT_ENDPOINT
-      self.adapter     = DEFAULT_ADAPTER
     end
   end
 end
