@@ -3,9 +3,13 @@ module MarketSharp
     private
 
     def connection
-      options = { rest_options: { headers: { "Authorization" => calculated_authorization } } }
+      options = {
+        verify_ssl: OpenSSL::SSL::VERIFY_NONE,
+        rest_options: { headers: { "Authorization" => calculated_authorization } },
+        additional_params: { headers: { "Authorization" => calculated_authorization } },
+      }
 
-      return OData::Service.new(self.endpoint, options)
+      return @service ||= ::OData::Service.new(self.endpoint, options)
     end
 
     def calculated_authorization
