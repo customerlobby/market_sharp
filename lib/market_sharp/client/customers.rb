@@ -9,7 +9,7 @@ module MarketSharp
         start_date = params[:start_date].strftime("%Y-%m-%dT%H:%M:%S")
         end_date = params[:end_date].strftime("%Y-%m-%dT%H:%M:%S")
 
-        connection.Contacts.skip(page * page_size).top(page_size).filter("#{date_to_filter_on} ge datetime'#{start_date}'").filter("#{date_to_filter_on} le datetime'#{end_date}'")
+        connection.Contacts.skip(page * page_size).top(page_size).filter("#{date_to_filter_on} ge datetime'#{start_date}'").filter("#{date_to_filter_on} le datetime'#{end_date}'").expand('Address').expand('ContactPhone')
 
         response = connection.execute
         return JSON.parse(response.to_json)
