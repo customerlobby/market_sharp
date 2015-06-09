@@ -5,6 +5,7 @@ module MarketSharp
 
     # TODO: Be sure to update these includes to the actual resources available in the client directory.
     include MarketSharp::Client::Customers
+    include MarketSharp::Client::Contracts
     include MarketSharp::Client::Transactions
   end
 end
