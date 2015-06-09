@@ -14,7 +14,7 @@ module MarketSharp
 
     DEFAULT_SECRET_KEY = nil
 
-    DEFAULT_ENDPOINT = 'https://api4.marketsharpm.com/WcfDataService.svc/'.freeze
+    DEFAULT_ENDPOINT = 'https://api4.marketsharpm.com/WcfDataService.svc/'
 
     attr_accessor *VALID_OPTIONS_KEYS
 
