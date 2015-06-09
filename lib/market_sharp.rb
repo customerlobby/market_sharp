@@ -1,5 +1,6 @@
 require 'active_support/all'
 require 'market_sharp/version'
+require 'ruby_odata'
 
 require File.expand_path('../market_sharp/configuration', __FILE__)
 require File.expand_path('../market_sharp/api', __FILE__)
