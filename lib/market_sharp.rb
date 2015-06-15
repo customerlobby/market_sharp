@@ -1,9 +1,7 @@
-require 'faraday'
-require 'faraday_middleware'
 require 'active_support/all'
 require 'market_sharp/version'
+require 'ruby_odata'
 
-Dir[File.expand_path('../../faraday/*.rb', __FILE__)].each{|f| require f}
 require File.expand_path('../market_sharp/configuration', __FILE__)
 require File.expand_path('../market_sharp/api', __FILE__)
 require File.expand_path('../market_sharp/client', __FILE__)
