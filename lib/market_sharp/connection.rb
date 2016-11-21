@@ -19,7 +19,7 @@ module MarketSharp
 
       base64_secret_key = Base64.decode64(self.secret_key)
       computed_secret = OpenSSL::HMAC.digest( 'sha256', base64_secret_key, message)
-
+      
       return "#{self.company_id}:#{self.user_key}:#{epoch_time_stamp}:#{Base64.encode64(computed_secret).strip}"
     end
   end

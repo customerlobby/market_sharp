@@ -74,13 +74,13 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 end
 
-def a_get(path)
-  a_request(:get, "#{MarketSharp.endpoint}#{MarketSharp.api_version}/" + path)
-end
+# def a_get(path)
+#   a_request(:get, "#{MarketSharp.endpoint}/")
+# end
 
-def stub_get(path)
-  stub_request(:get, "#{MarketSharp.endpoint}#{MarketSharp.api_version}/" + path)
-end
+# def stub_get(path)
+#   stub_request(:get, "#{MarketSharp.endpoint}/")
+# end
 
 def fixture_path
   File.expand_path("../fixtures", __FILE__)
