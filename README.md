@@ -27,7 +27,20 @@ There are two ways to configure the  gem. You can pass a hash of configuration o
 a client, or you can use a configure block.
 
 ```ruby
-client = MarketSharp.client({api_token: "YOUR_TOKEN_HERE"})
+
+client = MarketSharp.client(company_id: 'YOUR_ACCOUNT_ID_HERE', user_key: 'YOUR_TOKEN_HERE', secret_key: 'YOUR_SECRET_HERE')
+
+Example request:
+
+params[:start_date]      = 'SOME_DATE_IN_THE_PAST'
+params[:end_date]        = Date.today
+params[:sort_by]         = 'lastUpdate'
+params[:sort_direction]  = 'asc'
+
+customers = client.customers(params)
+
+transactions = client.transactions(params)
+
 ```
 
 ```ruby
