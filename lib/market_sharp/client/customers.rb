@@ -30,6 +30,8 @@ module MarketSharp
         else
           raise(MarketSharp::Error, e.message)
         end
+      rescue StandardError => e
+        raise(MarketSharp::Error, e.message)
       end
 
       def customer(id, params = {})
