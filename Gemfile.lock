@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    market_sharp (0.0.2)
+    market_sharp (0.0.3)
       ruby_odata (~> 0.2.0.beta1)
 
 GEM
