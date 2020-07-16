@@ -8,5 +8,5 @@ RSpec::Core::RakeTask.new(:spec)
 task default: :spec
 
 task :console do
-  exec "irb -r market_sharp -I ./lib"
+  exec 'irb -r market_sharp -I ./lib'
 end

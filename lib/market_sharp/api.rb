@@ -1,11 +1,12 @@
-require File.expand_path('../connection', __FILE__)
+# frozen_string_literal: true
+
+require File.expand_path('connection', __dir__)
 
 module MarketSharp
   class API
+    attr_accessor(*Configuration::VALID_OPTIONS_KEYS)
 
-    attr_accessor *Configuration::VALID_OPTIONS_KEYS
-
-    def initialize(options={})
+    def initialize(options = {})
       options = MarketSharp.options.merge(options)
       Configuration::VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])

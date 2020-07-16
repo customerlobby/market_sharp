@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 module MarketSharp
   class Client
     module Contracts
-      def contracts_by_job_id(job_id, params = {})
+      def contracts_by_job_id(job_id, _params = {})
         connection.Contracts.filter("jobId eq '#{job_id}'")
 
         response = connection.execute
-        return JSON.parse(response.to_json)
+        JSON.parse(response.to_json)
       end
     rescue OData::ServiceError => e
       case e.http_code
-      when  401
+      when 401
         raise(MarketSharp::AuthorizationError, e.message)
       when 404
         raise(MarketSharp::RecordNotFoundError, e.message)
@@ -22,6 +24,8 @@ module MarketSharp
       else
         raise(MarketSharp::Error, e.message)
       end
+    rescue StandardError => e
+      raise(MarketSharp::InternalServerError, e.message)
     end
   end
 end
