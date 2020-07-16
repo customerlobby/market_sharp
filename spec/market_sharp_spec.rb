@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe MarketSharp do
@@ -5,8 +7,8 @@ RSpec.describe MarketSharp do
     MarketSharp.reset
   end
 
-  describe ".client" do
-    it "should be a MarketSharp::Client" do
+  describe '.client' do
+    it 'should be a MarketSharp::Client' do
       expect(MarketSharp.client).to be_a(MarketSharp::Client)
     end
   end
@@ -65,7 +67,6 @@ RSpec.describe MarketSharp do
 
   describe '#configure' do
     MarketSharp::Configuration::VALID_OPTIONS_KEYS.each do |key|
-
       it "should set the #{key}" do
         MarketSharp.configure do |config|
           config.send("#{key}=", key)

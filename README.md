@@ -33,6 +33,7 @@ client = MarketSharp.client(company_id: 'YOUR_ACCOUNT_ID_HERE', user_key: 'YOUR_
 Example request:
 
 params[:start_date]      = 'SOME_DATE_IN_THE_PAST'
+(for sandbox account used to test the lastUpdated is in 2011
 params[:end_date]        = Date.today
 params[:sort_by]         = 'lastUpdate'
 params[:sort_direction]  = 'asc'
@@ -40,6 +41,10 @@ params[:sort_direction]  = 'asc'
 customers = client.customers(params)
 
 transactions = client.transactions(params)
+
+customer = client.customer(id)
+
+contracts = client.contracts_by_job_id(job_id)
 
 ```
 

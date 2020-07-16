@@ -1,4 +1,8 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in service_monster.gemspec
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
+
+# Specify your gem's dependencies in market_sharp.gemspec
 gemspec

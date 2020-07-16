@@ -1,11 +1,10 @@
 module MarketSharp
   module Configuration
-
-    VALID_OPTIONS_KEYS = [
-      :company_id,
-      :user_key,
-      :secret_key,
-      :endpoint
+    VALID_OPTIONS_KEYS = %i[
+      company_id
+      user_key
+      secret_key
+      endpoint
     ].freeze
 
     DEFAULT_COMPANY_ID = nil
@@ -16,7 +15,7 @@ module MarketSharp
 
     DEFAULT_ENDPOINT = 'https://api4.marketsharpm.com/WcfDataService.svc/'
 
-    attr_accessor *VALID_OPTIONS_KEYS
+    attr_accessor(*VALID_OPTIONS_KEYS)
 
     # Convenience method to allow configuration options to be set in a block
     def configure
